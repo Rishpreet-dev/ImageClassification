@@ -6,10 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.imageclassification.R
 import com.example.imageclassification.ml.MobilenetV110224Quant
@@ -19,28 +16,46 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var toolbar: Toolbar
     private lateinit var selectImageBtn : Button
     private lateinit var makePredictionBtn : Button
     private lateinit var imgView : ImageView
     private lateinit var predictionVal : TextView
     private lateinit var bitmap: Bitmap
-    private lateinit var search: Button
+    private lateinit var tryOnBtn: Button
     private var imageSelected: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        selectImageBtn = findViewById(R.id.select_image_btn)
+        toolbar = findViewById(R.id.toolbar)
+        selectImageBtn = findViewById(R.id.select_img_btn)
         makePredictionBtn = findViewById(R.id.make_prediction_btn)
         imgView = findViewById(R.id.img_view)
         predictionVal = findViewById(R.id.prediction_val)
-        search=findViewById(R.id.ar_btn)
+        tryOnBtn = findViewById(R.id.ar_btn)
 
-        search.setOnClickListener {
-            startActivity(Intent(this, ActivityAR::class.java))
+
+        setActionBar(toolbar)
+        actionBar?.title = "Image Prediction"
+
+        tryOnBtn.setOnClickListener {
+            if(imageSelected)
+                startActivity(Intent(this, ActivityARGlasses::class.java))
+            else
+                Toast.makeText(this, "Please select image first",Toast.LENGTH_LONG).show()
         }
 
+        tryOnBtn.setOnLongClickListener{
+            if(imageSelected) {
+                startActivity(Intent(this, ActivityARJewellery::class.java))
+                true
+            } else {
+                Toast.makeText(this, "Please select image first",Toast.LENGTH_LONG).show()
+                false
+            }
+        }
 
         val labels = application.assets.open("labels.txt").bufferedReader().use { it.readText() }.split("\n")
 

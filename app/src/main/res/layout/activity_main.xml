@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:titleTextColor="@color/white"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,21 +44,55 @@
                 android:src="@drawable/image_placeholder"
                 android:layout_marginBottom="20dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/select_image_btn"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/select_img_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Select Image"
-                android:textAllCaps="false"
-                android:layout_marginBottom="10dp" />
+                android:background="@color/purple_500"
+                android:elevation="2dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/make_prediction_btn"
-                android:layout_width="wrap_content"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/select_img_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="Select Image"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textAllCaps="false"
+                    android:gravity="center"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/make_prediction_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Make Prediction"
-                android:textAllCaps="false"
-                android:layout_marginBottom="10dp" />
+                android:background="@color/purple_500"
+                android:elevation="2dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/make_prediction_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="Make Prediction"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textAllCaps="false"
+                    android:gravity="center"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp" />
+
+            </RelativeLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/prediction_val"
@@ -54,14 +104,31 @@
                 android:textAlignment="center"
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="10dp"/>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/ar_btn"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/ar_btn_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Try-On"
-                android:textAllCaps="false" />
+                android:background="@color/purple_500"
+                android:elevation="2dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/ar_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="Try - On"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textAllCaps="false"
+                    android:gravity="center"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp" />
+
+            </RelativeLayout>
 
         </LinearLayout>
 
