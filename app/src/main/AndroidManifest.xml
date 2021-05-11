@@ -16,16 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data android:name="com.google.ar.core" android:value="required" />
-        <activity android:name=".ActivityMain"
+        <activity android:name=".activities.ActivityMain"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityImageClassification"
+        <activity android:name=".activities.ActivityImageClassification"
             android:screenOrientation="portrait" />
-        <activity android:name=".ActivityARGlasses"
+        <activity android:name=".activities.ActivityARGlasses"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.ActivityARJewellery"
             android:screenOrientation="portrait" />
     </application>
 

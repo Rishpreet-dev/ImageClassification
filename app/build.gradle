@@ -63,3 +63,21 @@ sceneform.asset('3dassets/yellow_sunglasses.fbx',
         '3dassets/yellow_sunglasses.sfa',
         'src/main/assets/yellow_sunglasses'
 )
+
+sceneform.asset('sampledata/earring v2.obj',
+        'default',
+        'sampledata/earring v2.sfa',
+        'src/main/assets/earring v2'
+)
+
+sceneform.asset('sampledata/ringobj.obj',
+        'default',
+        'sampledata/ringobj.sfa',
+        'src/main/assets/ringobj'
+)
+
+sceneform.asset('sampledata/necklace.fbx',
+        'default',
+        'sampledata/necklace.sfa',
+        'src/main/assets/necklace'
+)

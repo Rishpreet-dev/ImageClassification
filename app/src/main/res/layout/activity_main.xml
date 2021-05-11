@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityMain">
+    tools:context=".activities.ActivityMain">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="wrap_content"
@@ -35,6 +35,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Go To AR Glasses"
+                android:textAllCaps="false"
+                android:layout_marginBottom="10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ar_jewellery_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Go To AR Jewellery"
                 android:textAllCaps="false" />
 
         </LinearLayout>
